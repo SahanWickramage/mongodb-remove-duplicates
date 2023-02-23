@@ -2,18 +2,18 @@ import random
 import datetime
 import json
 
-N_RECORDS = 10
+N_RECORDS = 100
 FILE_NAME = 'generated_sample_data.json'
 DATE_FORMAT = '%Y-%m-%d'
 
 
-def generate_sample_date(n, file_name):
-    names = ['alice', 'adam', 'bob', 'brian', 'charlie']
+def generate_sample_data(n, file_name):
+    students = ['alice', 'adam', 'bob', 'brian', 'charlie']
     courses = ['algorithms', 'datastructures', 'security', 'oop', 'databases']
     subscribed_at = datetime.datetime.now()
     generated_sample_data_list = []
     for i in range(n):
-        name = random.choice(names)
+        name = random.choice(students)
         course = random.choice(courses)
         subscribed_at = subscribed_at + datetime.timedelta(days=random.randint(1, 10))
         print(f'name: {name} | course: {course} | subscribed_at: {subscribed_at.strftime(DATE_FORMAT)}')
@@ -24,4 +24,4 @@ def generate_sample_date(n, file_name):
 
 
 if __name__ == '__main__':
-    generate_sample_date(N_RECORDS, FILE_NAME)
+    generate_sample_data(N_RECORDS, FILE_NAME)
