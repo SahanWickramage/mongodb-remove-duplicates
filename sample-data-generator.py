@@ -13,11 +13,11 @@ def generate_sample_data(n, file_name):
     subscribed_at = datetime.datetime.now()
     generated_sample_data_list = []
     for i in range(n):
-        name = random.choice(students)
+        student = random.choice(students)
         course = random.choice(courses)
         subscribed_at = subscribed_at + datetime.timedelta(days=random.randint(1, 10))
-        print(f'name: {name} | course: {course} | subscribed_at: {subscribed_at.strftime(DATE_FORMAT)}')
-        generated_sample_data_list.append({'name': name, 'course': course, 'subscribed_at': subscribed_at.strftime((DATE_FORMAT))})
+        print(f'student: {student} | course: {course} | subscribed_at: {subscribed_at.strftime(DATE_FORMAT)}')
+        generated_sample_data_list.append({'student': student, 'course': course, 'subscribed_at': subscribed_at.strftime(DATE_FORMAT)})
 
     with open(file_name, 'w') as f:
         f.write(json.dumps(generated_sample_data_list, indent=None, separators=(',', ':')).replace('},', '},\n'))
